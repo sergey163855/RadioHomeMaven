@@ -17,9 +17,31 @@ public class TestRadio {
     }
 
     @Test
-    public void SetNewChannelTestWrong() {
+    public void NextCurrentChannelTest1() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+
+        radio.next();
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void SetNewMaxChannelTestWrong() {
         Radio radio = new Radio();
         radio.setCurrentStation(11);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void SetNewMinChannelTestWrong() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-1);
 
         int expected = 0;
         int actual = radio.getCurrentStation();
@@ -63,12 +85,35 @@ public class TestRadio {
     }
 
     @Test
+    public void IncreaseVolumeTest1() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(99);
+
+        radio.nextvolume();
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void IncreaseOverMaxVolumeTest() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(100);
+        radio.setCurrentVolume(101);
 
-        int expected = 100;
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void IncreaseOverMinVolumeTest() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(-1);
+
+        int expected = 0;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -93,6 +138,18 @@ public class TestRadio {
         radio.prevvolume();
 
         int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void PrevAfterMinVolumeTest() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(0);
+
+        radio.prevvolume();
+
+        int expected = 99;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
