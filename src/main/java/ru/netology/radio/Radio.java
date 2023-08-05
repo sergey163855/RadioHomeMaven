@@ -20,7 +20,7 @@ public class Radio {
         }
     }
 
-    public void nextvolume() {
+    public void nextVolume() {
         if (currentVolume != 99) {
             currentVolume++;
         } else {
@@ -28,7 +28,7 @@ public class Radio {
         }
     }
 
-    public void prevvolume() {
+    public void prevVolume() {
         if (currentVolume != 0) {
             currentVolume--;
         } else {

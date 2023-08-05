@@ -77,7 +77,7 @@ public class TestRadio {
         Radio radio = new Radio();
         radio.setCurrentVolume(33);
 
-        radio.nextvolume();
+        radio.nextVolume();
 
         int expected = 34;
         int actual = radio.getCurrentVolume();
@@ -89,7 +89,7 @@ public class TestRadio {
         Radio radio = new Radio();
         radio.setCurrentVolume(99);
 
-        radio.nextvolume();
+        radio.nextVolume();
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -123,7 +123,7 @@ public class TestRadio {
         Radio radio = new Radio();
         radio.setCurrentVolume(5);
 
-        radio.prevvolume();
+        radio.prevVolume();
 
         int expected = 4;
         int actual = radio.getCurrentVolume();
@@ -135,7 +135,7 @@ public class TestRadio {
         Radio radio = new Radio();
         radio.setCurrentVolume(1);
 
-        radio.prevvolume();
+        radio.prevVolume();
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -147,7 +147,7 @@ public class TestRadio {
         Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
-        radio.prevvolume();
+        radio.prevVolume();
 
         int expected = 99;
         int actual = radio.getCurrentVolume();
